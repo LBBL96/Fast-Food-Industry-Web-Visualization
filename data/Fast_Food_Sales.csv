@@ -1,29 +1,29 @@
 Company,Category,2016 U.S. Systemwide Sales (millions),2016 U.S. Average Sales Per Unit (thousands),Number of Franchised Units in 2016,Number of Company Units in 2016,Total Units in 2016
-McDonald's*,Burger,36389.0,2550.0,13046,1109,14155
-Starbucks*1,Snack,14795.4,1123.25,5292,7880,13172
+McDonald's,Burger,36389.0,2550.0,13046,1109,14155
+Starbucks,Snack,14795.4,1123.25,5292,7880,13172
 Subway,Sandwich,11300.0,422.52,26744,0,26744
 Wendy's,Burger,9510.0,1454.8,6207,330,6537
-Burger King*,Burger,9749.19,1361.43,7111,50,7161
+Burger King,Burger,9749.19,1361.43,7111,50,7161
 Taco Bell,Ethnic,9353.8,1510.0,5399,879,6278
-Dunkin' Donuts*,Snack,8200.0,928.86,8828,0,8828
+Dunkin' Donuts,Snack,8200.0,928.86,8828,0,8828
 Chick-fil-A,Chicken,7973.5,4407.1,1730,372,2102
 Pizza Hut,Pizza,5751.4,740.0,7371,318,7689
-Domino's*,Pizza,5335.2,993.33,4979,392,5371
+Domino's,Pizza,5335.2,993.33,4979,392,5371
 Panera Bread,Sandwich,5200.0,2700.0,1134,908,2042
-Sonic*,Burger,4504.14,1284.0,3201,356,3557
+Sonic,Burger,4504.14,1284.0,3201,356,3557
 KFC,Chicken,4483.3,1060.0,3966,201,4167
 Chipotle,Ethnic,3904.38,1868.0,0,2198,2198
-Carl's Jr./Hardee's*,Burger,3761.0,1249.0,2774,237,3011
+Carl's Jr./Hardee's,Burger,3761.0,1249.0,2774,237,3011
 Dairy Queen,Snack,3621.0,1268.05,4515,2,4517
 Arby's,Sandwich,3600.0,1117.0,2314,1044,3358
-Little Caesars*,Pizza,3523.25,815.0,3809,514,4323
+Little Caesars,Pizza,3523.25,815.0,3809,514,4323
 Jack in the Box,Burger,3445.0,1530.0,1838,417,2255
-Popeyes Louisiana Kitchen*,Chicken,3140.3,1488.0,2029,55,2084
+Popeyes Louisiana Kitchen,Chicken,3140.3,1488.0,2029,55,2084
 Papa John's,Pizza,3013.79,875.85,2739,702,3441
 Panda Express,Ethnic,2903.04,1606.0,95,1798,1893
 Whataburger,Burger,2181.35,2706.0,122,684,806
 Jimmy John's,Sandwich,2146.6,841.7,2584,63,2647
-Zaxby's*,Chicken,1891.98,2318.6,677,139,816
+Zaxby's,Chicken,1891.98,2318.6,677,139,816
 Five Guys,Burger,1382.01,1038.24,914,507,1421
 Culver's,Burger,1301.38,2252.2,597,8,605
 Bojangles',Chicken,1229.48,1818.43,407,309,716
@@ -31,21 +31,21 @@ Steak n Shake,Burger,1027.0,1900.0,153,415,568
 Wingstop,Chicken,943.3,1113.0,977,21,998
 Papa Murphy's,Pizza,884.77,592.96,1369,168,1577
 Checkers/Rally's,Burger,837.36,1114.89,541,300,841
-Jersey Mike's Subs*,Sandwich,825.0,695.03,1134,53,1187
+Jersey Mike's Subs,Sandwich,825.0,695.03,1134,53,1187
 Qdoba Mexican Eats,Ethnic,801.0,1179.0,332,367,699
 Church's Chicken,Chicken,800.27,724.0,838,238,1076
 El Pollo Loco,Chicken,795.44,1988.0,259,201,460
 Del Taco,Ethnic,738.08,1359.0,310,241,551
 White Castle,Burger,716.71,1434.52,0,384,384
-Tim Hortons*,Snack,713.09,1044.06,683,0,683
+Tim Hortons,Snack,713.09,1044.06,683,0,683
 Moe's Southwest Grill,Ethnic,688.04,1142.53,675,5,680
 Firehouse Subs,Sandwich,683.53,690.0,1005,32,1037
-Boston Market*,Chicken,659.16,1426.74,5,457,462
+Boston Market,Chicken,659.16,1426.74,5,457,462
 Jason's Deli,Sandwich,646.59,2609.0,109,155,264
-In-N-Out Burger*,Burger,630.03,1975.0,0,319,319
-Baskin-Robbins*,Snack,603.6,237.83,2538,0,2538
+In-N-Out Burger,Burger,630.03,1975.0,0,319,319
+Baskin-Robbins,Snack,603.6,237.83,2538,0,2538
 McAlister's Deli,Sandwich,591.3,1646.13,355,32,387
 Noodles & Company,Ethnic,560.56,1075.0,75,457,532
 Auntie Anne's,Snack,548.0,493.8,1284,16,1300
 Captain D's,Seafood,544.43,1059.0,227,289,516
-Jamba Juice*,Snack,536.92,639.95,767,72,839
+Jamba Juice,Snack,536.92,639.95,767,72,839
