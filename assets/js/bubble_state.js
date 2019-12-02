@@ -1,4 +1,4 @@
-(async function(){
+(async function() {
     const
         svgWidth = 960,
         svgHeight = 500;
@@ -14,7 +14,7 @@
     const height = svgHeight - margin.top - margin.bottom;
 
     // Create an SVG wrapper, append an SVG group that will hold our chart, and shift the latter by left and top margins.
-    const svg = d3.select(".chart")
+    const svg = d3.select("body")
     .append("svg")
     .attr("width", svgWidth)
     .attr("height", svgHeight);
@@ -23,11 +23,12 @@
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
     // Import Data
-    const stateData = await d3.csv("Belly_Button_Biodiversity/data/Count_by_State.csv");
+    const stateData = await d3.csv("assets/data/Count_by_State.csv")
+    console.log(stateData);
 
     // Step 1: Parse Data/Cast as numbers
     // ==============================
-    stateData.forEach(function(data) {
+    stateData.forEach(function (data) {
         data.state = +data.state;
         data.number_of_restaurants = +data.number_of_restaurants;
         // data.Ethnic = +data.Ethnic;
