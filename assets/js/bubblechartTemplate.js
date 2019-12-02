@@ -18,7 +18,7 @@ var svg = d3.select("body")
         "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
-d3.csv("data/Count_by_State.csv", function(data) {
+d3.json("..assets/data/state_categories.json", function(data) {
 
     // ---------------------------//
     //       AXIS  AND SCALE      //
@@ -37,7 +37,7 @@ d3.csv("data/Count_by_State.csv", function(data) {
         .attr("text-anchor", "end")
         .attr("x", width)
         .attr("y", height + 50)
-        .text("States");
+        .text("State");
 
     // Add Y axis
     var y = d3.scaleLinear()
@@ -108,11 +108,11 @@ d3.csv("data/Count_by_State.csv", function(data) {
     // ---------------------------//
 
     // What to do when one group is hovered
-    var highlight = function(d) {
+    var highlight = function(data) {
         // reduce opacity of all groups
         d3.selectAll(".bubbles").style("opacity", .05)
             // expect the one that is hovered
-        d3.selectAll("." + d).style("opacity", 1)
+        d3.selectAll(".bubbles" ).style("opacity", 1)
     }
 
     // And when it is not hovered anymore
