@@ -1,11 +1,15 @@
 // set the dimensions and margins of the graph
+//Horizontal Axis => Murders per 100,000 population
+// Vertical Axis => Burglaries per 100, 000 population
+// Bubble Size => State Population
+// Bubble color("Red states, Blue states") => Political classification of each state into Red / Blue / Purple.
 
 var margin = { top: 40, right: 150, bottom: 60, left: 30 },
     width = 500 - margin.left - margin.right,
     height = 420 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#my_dataviz")
+var svg = d3.select("body")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -14,7 +18,7 @@ var svg = d3.select("#my_dataviz")
         "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
-d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/4_ThreeNum.csv", function(data) {
+d3.csv("data/Count_by_State.csv", function(data) {
 
     // ---------------------------//
     //       AXIS  AND SCALE      //
@@ -33,7 +37,7 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
         .attr("text-anchor", "end")
         .attr("x", width)
         .attr("y", height + 50)
-        .text("Gdp per Capita");
+        .text("States");
 
     // Add Y axis
     var y = d3.scaleLinear()
@@ -47,18 +51,18 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
         .attr("text-anchor", "end")
         .attr("x", 0)
         .attr("y", -20)
-        .text("Life expectancy")
+        .text("Number of restaurants")
         .attr("text-anchor", "start")
 
-    // Add a scale for bubble size
+    // Add a scale for bubble size based on number of restaurants 
     var z = d3.scaleSqrt()
         .domain([200000, 1310000000])
-        .range([2, 30]);
+        .range([2, 1000]);
 
-    // Add a scale for bubble color
-    var myColor = d3.scaleOrdinal()
-        .domain(["Asia", "Europe", "Americas", "Africa", "Oceania"])
-        .range(d3.schemeSet1);
+    // // Add a scale for bubble color
+    // var myColor = d3.scaleOrdinal()
+    //     .domain(["Asia", "Europe", "Americas", "Africa", "Oceania"])
+    //     .range(d3.schemeSet1);
 
 
     // ---------------------------//
@@ -66,7 +70,7 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
     // ---------------------------//
 
     // -1- Create a tooltip div that is hidden by default:
-    var tooltip = d3.select("#my_dataviz")
+    var tooltip = d3.select("#body")
         .append("div")
         .style("opacity", 0)
         .attr("class", "tooltip")
@@ -82,7 +86,7 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
             .duration(200)
         tooltip
             .style("opacity", 1)
-            .html("Country: " + d.country)
+            .html("state: " + d.state)
             .style("left", (d3.mouse(this)[0] + 30) + "px")
             .style("top", (d3.mouse(this)[1] + 30) + "px")
     }
@@ -127,11 +131,11 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
         .data(data)
         .enter()
         .append("circle")
-        .attr("class", function(d) { return "bubbles " + d.continent })
-        .attr("cx", function(d) { return x(d.gdpPercap); })
-        .attr("cy", function(d) { return y(d.lifeExp); })
-        .attr("r", function(d) { return z(d.pop); })
-        .style("fill", function(d) { return myColor(d.continent); })
+        .attr("class", function(d) { return "bubbles " + d.state })
+        .attr("cx", function(d) { return x(d.state); })
+        .attr("cy", function(d) { return y(d.number_of_restaurants); })
+        .attr("r", function(d) { return z(d.number_of_restaurants); })
+        // .style("fill", function(d) { return myColor(d.state); })
         // -3- Trigger the functions for hover
         .on("mouseover", showTooltip)
         .on("mousemove", moveTooltip)
@@ -144,12 +148,12 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
     // ---------------------------//
 
     // Add legend: circles
-    var valuesToShow = [10000000, 100000000, 1000000000]
+    var categories = [1, 2, 3, 4, 5, 6, 7]
     var xCircle = 390
     var xLabel = 440
     svg
         .selectAll("legend")
-        .data(valuesToShow)
+        .data(categories)
         .enter()
         .append("circle")
         .attr("cx", xCircle)
@@ -161,7 +165,7 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
     // Add legend: segments
     svg
         .selectAll("legend")
-        .data(valuesToShow)
+        .data(categories)
         .enter()
         .append("line")
         .attr('x1', function(d) { return xCircle + z(d) })
@@ -174,7 +178,7 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
     // Add legend: labels
     svg
         .selectAll("legend")
-        .data(valuesToShow)
+        .data(categories)
         .enter()
         .append("text")
         .attr('x', xLabel)
@@ -190,9 +194,9 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
         .text("Population (M)")
         .attr("text-anchor", "middle")
 
-    // Add one dot in the legend for each name.
+    // Add one dot in the legend for each 
     var size = 20
-    var allgroups = ["Asia", "Europe", "Americas", "Africa", "Oceania"]
+    var allgroups = [""]
     svg.selectAll("myrect")
         .data(allgroups)
         .enter()
@@ -200,7 +204,7 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
         .attr("cx", 390)
         .attr("cy", function(d, i) { return 10 + i * (size + 5) }) // 100 is where the first dot appears. 25 is the distance between dots
         .attr("r", 7)
-        .style("fill", function(d) { return myColor(d) })
+        // .style("fill", function(d) { return myColor(d) })
         .on("mouseover", highlight)
         .on("mouseleave", noHighlight)
 
@@ -211,10 +215,10 @@ d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_data
         .append("text")
         .attr("x", 390 + size * .8)
         .attr("y", function(d, i) { return i * (size + 5) + (size / 2) }) // 100 is where the first dot appears. 25 is the distance between dots
-        .style("fill", function(d) { return myColor(d) })
+        // .style("fill", function(d) { return myColor(d) })
         .text(function(d) { return d })
         .attr("text-anchor", "left")
         .style("alignment-baseline", "middle")
         .on("mouseover", highlight)
         .on("mouseleave", noHighlight)
-})
+}) 
