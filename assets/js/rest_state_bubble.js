@@ -1,4 +1,4 @@
-(async function(){
+
     const
         svgWidth = 960,
         svgHeight = 500;
@@ -23,9 +23,9 @@
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
     // Import Data
-    stateData = d3.json("../assets/data/state_count.json", function(error, graph) {
-        alert(error)
-      })
+    stateData = d3.csv("/assets/data/Count_by_State.csv");
+    console.log(stateData);     
+
 
     // Step 1: Parse Data/Cast as numbers
     // ==============================
@@ -106,4 +106,4 @@
         .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
         .attr("class", "axisText")
         .text("Hair Metal Band Hair Length (inches)");
-})()
+

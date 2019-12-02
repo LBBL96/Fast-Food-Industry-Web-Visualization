@@ -31,10 +31,12 @@ function xScale(stateData, XAxis) {
         .domain([d3.min(stateData, d => d[XAxis]) * 0.8,
             d3.max(stateData, d => d[XAxis]) * 1.2
         ])
+        
         .range([0, width]);
+    }
 
     return LinearScaleX;
-}
+
 
 function yScale(stateData, YAxis) {
 
@@ -139,7 +141,7 @@ function ToolTipUpdate(XAxis, YAxis, GroupCircles) {
     return GroupCircles;
 }
 
-});
+
 d3.csv("./assets/data/Count_by_State.csv", function(error, data) {
             if (error) {
                 console.error('Error getting or parsing the data.');
@@ -264,98 +266,98 @@ d3.csv("./assets/data/Count_by_State.csv", function(error, data) {
                 //     .text("Obese (%)");
 
                 //ToolTipUpdate function with data
-                var GroupCircles = ToolTipUpdate(XAxis, YAxis, GroupCircles);
+                // var GroupCircles = ToolTipUpdate(XAxis, YAxis, GroupCircles);
 
-                //x axis labels event listener
-                xLabelsGroup.selectAll("text")
-                    .on("click", function() {
-                            //get value of selection
-                            var value = d3.select(this).attr("value");
+                // //x axis labels event listener
+                // xLabelsGroup.selectAll("text")
+                //     .on("click", function() {
+                //             //get value of selection
+                //             var value = d3.select(this).attr("value");
 
-                            //check if value is same as current axis
-                            if (value != XAxis) {
+                //             //check if value is same as current axis
+                //             if (value != XAxis) {
 
-                                //replace XAxis with value
-                                XAxis = value;
+                //                 //replace XAxis with value
+                //                 XAxis = value;
 
-                                //update x scale for new data
-                                LinearScaleX = xScale(stateData, XAxis);
+                //                 //update x scale for new data
+                //                 LinearScaleX = xScale(stateData, XAxis);
 
-                                //update x axis with transition
-                                xAxis = renderAxesX(LinearScaleX, xAxis);
+                //                 //update x axis with transition
+                //                 xAxis = renderAxesX(LinearScaleX, xAxis);
 
-                                //update circles with new x values
-                                GroupCircles = renderCircles(GroupCircles, LinearScaleX, XAxis, LinearScaleY, YAxis);
+                //                 //update circles with new x values
+                //                 GroupCircles = renderCircles(GroupCircles, LinearScaleX, XAxis, LinearScaleY, YAxis);
 
-                                //update text with new x values
-                                textGroup = renderText(textGroup, LinearScaleX, XAxis, LinearScaleY, YAxis);
+                //                 //update text with new x values
+                //                 textGroup = renderText(textGroup, LinearScaleX, XAxis, LinearScaleY, YAxis);
 
-                                //update tooltips with new info
-                                GroupCircles = ToolTipUpdate(XAxis, YAxis, GroupCircles);
+                //                 //update tooltips with new info
+                //                 GroupCircles = ToolTipUpdate(XAxis, YAxis, GroupCircles);
 
-                                //change classes to change bold text
-                                //         if (XAxis === "poverty") {
-                                //             Label_poverty.classed("active", true).classed("inactive", false);
-                                //             Label_age.classed("active", false).classed("inactive", true);
-                                //             Label_income.classed("active", false).classed("inactive", true);
-                                //         } else if (XAxis === "age") {
-                                //             Label_poverty.classed("active", false).classed("inactive", true);
-                                //             Label_age.classed("active", true).classed("inactive", false);
-                                //             Label_income.classed("active", false).classed("inactive", true);
-                                //         } else {
-                                //             Label_poverty.classed("active", false).classed("inactive", true);
-                                //             Label_age.classed("active", false).classed("inactive", true);
-                                //             Label_income.classed("active", true).classed("inactive", false);
-                                //         }
-                                //     }
-                                // });
+                //                 //change classes to change bold text
+                //                 //         if (XAxis === "poverty") {
+                //                 //             Label_poverty.classed("active", true).classed("inactive", false);
+                //                 //             Label_age.classed("active", false).classed("inactive", true);
+                //                 //             Label_income.classed("active", false).classed("inactive", true);
+                //                 //         } else if (XAxis === "age") {
+                //                 //             Label_poverty.classed("active", false).classed("inactive", true);
+                //                 //             Label_age.classed("active", true).classed("inactive", false);
+                //                 //             Label_income.classed("active", false).classed("inactive", true);
+                //                 //         } else {
+                //                 //             Label_poverty.classed("active", false).classed("inactive", true);
+                //                 //             Label_age.classed("active", false).classed("inactive", true);
+                //                 //             Label_income.classed("active", true).classed("inactive", false);
+                //                 //         }
+                //                 //     }
+                //                 // });
 
-                                // //y axis labels event listener
-                                // yLabelsGroup.selectAll("text")
-                                //     .on("click", function() {
-                                //         //get value of selection
-                                //         var value = d3.select(this).attr("value");
+                //                 // //y axis labels event listener
+                //                 // yLabelsGroup.selectAll("text")
+                //                 //     .on("click", function() {
+                //                 //         //get value of selection
+                //                 //         var value = d3.select(this).attr("value");
 
-                                //         //check if value is same as current axis
-                                //         if (value != YAxis) {
+                //                 //         //check if value is same as current axis
+                //                 //         if (value != YAxis) {
 
-                                //             //replace YAxis with value
-                                //             YAxis = value;
+                //                 //             //replace YAxis with value
+                //                 //             YAxis = value;
 
-                                //             //update y scale for new data
-                                //             LinearScaleY = yScale(censusData, YAxis);
+                //                 //             //update y scale for new data
+                //                 //             LinearScaleY = yScale(censusData, YAxis);
 
-                                //             //update x axis with transition
-                                //             yAxis = renderAxesY(LinearScaleY, yAxis);
+                //                 //             //update x axis with transition
+                //                 //             yAxis = renderAxesY(LinearScaleY, yAxis);
 
-                                //             //update circles with new y values
-                                //             GroupCircles = renderCircles(GroupCircles, LinearScaleX, XAxis, LinearScaleY, YAxis);
+                //                 //             //update circles with new y values
+                //                 //             GroupCircles = renderCircles(GroupCircles, LinearScaleX, XAxis, LinearScaleY, YAxis);
 
-                                //             //update text with new y values
-                                //             textGroup = renderText(textGroup, LinearScaleX, XAxis, LinearScaleY, YAxis)
+                //                 //             //update text with new y values
+                //                 //             textGroup = renderText(textGroup, LinearScaleX, XAxis, LinearScaleY, YAxis)
 
-                                //             //update tooltips with new info
-                                //             GroupCircles = ToolTipUpdate(XAxis, YAxis, GroupCircles);
+                //                 //             //update tooltips with new info
+                //                 //             GroupCircles = ToolTipUpdate(XAxis, YAxis, GroupCircles);
 
-                                //             //change classes to change bold text
-                                //             if (YAxis === "obesity") {
-                                //                 obesityLabel.classed("active", true).classed("inactive", false);
-                                //                 smokesLabel.classed("active", false).classed("inactive", true);
-                                //                 healthcareLabel.classed("active", false).classed("inactive", true);
-                                //             } else if (YAxis === "smokes") {
-                                //                 obesityLabel.classed("active", false).classed("inactive", true);
-                                //                 smokesLabel.classed("active", true).classed("inactive", false);
-                                //                 healthcareLabel.classed("active", false).classed("inactive", true);
-                                //             } else {
-                                //                 obesityLabel.classed("active", false).classed("inactive", true);
-                                //                 smokesLabel.classed("active", false).classed("inactive", true);
-                                //                 healthcareLabel.classed("active", true).classed("inactive", false);
-                                //         //             }
-                                //     }
-                                // });
-
-
+                //                 //             //change classes to change bold text
+                //                 //             if (YAxis === "obesity") {
+                //                 //                 obesityLabel.classed("active", true).classed("inactive", false);
+                //                 //                 smokesLabel.classed("active", false).classed("inactive", true);
+                //                 //                 healthcareLabel.classed("active", false).classed("inactive", true);
+                //                 //             } else if (YAxis === "smokes") {
+                //                 //                 obesityLabel.classed("active", false).classed("inactive", true);
+                //                 //                 smokesLabel.classed("active", true).classed("inactive", false);
+                //                 //                 healthcareLabel.classed("active", false).classed("inactive", true);
+                //                 //             } else {
+                //                 //                 obesityLabel.classed("active", false).classed("inactive", true);
+                //                 //                 smokesLabel.classed("active", false).classed("inactive", true);
+                //                 //                 healthcareLabel.classed("active", true).classed("inactive", false);
+                //                 //         //             }
+                //                 //     }
+                //                 // });
 
 
 
-                            }
+
+
+                //             }
