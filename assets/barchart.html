@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-
-<html>
-
-<head>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
 <title>Fast Food by Region</title>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
 </head>
 
 <style>
@@ -22,7 +22,7 @@
 <div class='container'>
 	<div class='row'>
 	<h2> Fast Food Restaurants by Region</h2>
-				<p></p>
+				<h1></h1>
 					<div class='radio'>
 						<label class='radio-inline'>
 							<input type="radio" name="burger" value="burger" onclick='change(this.value)'> Burgers
@@ -34,7 +34,7 @@
 							<input type="radio" name="ethnic" value="ethnic" onclick='change(this.value)'> Ethnic
 						</label>
 						<label class='radio-inline'>
-							<input type="radio" name="pizza" value="pizza" onclick='change(this.value)' checked > Pizza
+							<input type="radio" name="pizza" value="pizza" onclick='change(this.value)' > Pizza
             </label>
             <label class='radio-inline'>
 							<input type="radio" name="sandwich" value="sandwich" onclick='change(this.value)'> Sandwich
@@ -43,13 +43,16 @@
 							<input type="radio" name="seafood" value="seafood" onclick='change(this.value)'> Seafood
             </label>
             <label class='radio-inline'>
-							<input type="radio" name="snack" value="snack" onclick='change(this.value)'> Snack
+							<input type="radio" name="snack" value="snack" onclick='change(this.value)' checked> Snack
 						</label>
 					</div>
 			<svg class='chart'>
 			</svg>
 	</div>
 </div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 
 
@@ -271,9 +274,14 @@ function update(data){
 		.attr("height", function(d){ return height - yChart(d.number); })
 		.attr("width", barWidth - 1)
 		.attr("fill", function(d){ 
-			if(d.region === "FEMALE"){
-				return "rgb(251,180,174)";
-			}else{
+			if(d.region === "Northeast"){
+				return "rgb(135,206,235)";
+      }else if(d.region === "West"){
+        return "rgb(100,149,237)"
+      }else if(d.region === "South"){
+        return "rgb(70,130,180)"
+      }
+      else{
 				return "rgb(179,205,227)";
 			}
 		});
