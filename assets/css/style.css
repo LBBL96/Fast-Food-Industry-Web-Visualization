@@ -5,18 +5,10 @@ body, html {
   background-color: #fcfcfc !important;
 }
 
+/*  */
 
 .bg-light{
   background-color: #c9d1c8;
-}
-
-.hero-image-sm {
-  background-image: linear-gradient(rgba(236, 13, 13, 0.822), rgba(189, 177, 177, 0.5)), url("images/populahttp://www.rohitguglanii.com/wp-content/uploads/2019/04/what-to-eat-now-that-subway-s-5-footlong-is-gone-valuepenguin-staggering-logos-for-fast-food-quirky-10.jpgrfastfood.jpg");
-  height: 90%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
 }
 
 .hero-text-sm {
@@ -26,7 +18,7 @@ body, html {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #c9d1c8;
+  color: #cf0909;
 }
 
 .hero-image {
@@ -46,7 +38,6 @@ body, html {
   color: #cf0909;
 }
   
-
 a.btn {border-radius: .25rem; border: 1px solid transparent; padding: .5rem .9rem; }
 a.btn:hover { border-radius: .25rem; }
 a.btn {font-size:0.9rem; color: #c9d1c8}
@@ -63,6 +54,7 @@ p {
 
 h2 {
   font-size: 1.8rem !important;
+  color: #cf0909;
 }
 
 h4 {
@@ -85,4 +77,5 @@ h4 {
 .svg1 {
   padding: 50px;
 }
+
 
