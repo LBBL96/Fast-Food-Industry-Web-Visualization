@@ -2,10 +2,156 @@ body, html {
   height: 100%;
   margin: 0;
   font-family: 'Bree Serif', serif;
-  background-color: #fcfcfc !important;
+  background-color: #080808 !important;
 }
 
 /*  */
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
+
+html{
+  background-color:#000;
+  border-bottom:solid 5px blue;
+  border-top:solid 5px 080808;
+  overflow-x:hidden;
+  padding-bottom:142px;
+}
+
+p{
+  color:#FFF;
+  font: 50px 'Press Start 2P',  cursive;
+  margin:200px 139px;
+  position:absolute;
+  text-align:center;
+}
+
+.pacman{
+  margin:40px 10px;
+}
+
+.pacman-top{
+  background-color:yellow;
+  height:100px;
+  width:200px;
+  border-radius:100px 100px 0 0;
+  animation: spin1 0.5s infinite linear;
+}
+
+.pacman-bottom{
+background-color:yellow;
+  height:100px;
+  width:200px;
+  border-radius:0 0 100px 100px;
+  animation: spin2 0.5s infinite linear;
+}
+
+.feed {
+margin-top: -185px;
+margin-left:15px;
+width: 45px;
+height: 45px;
+border-radius: 30%;
+-moz-animation: eat 1s linear 0s infinite;
+-webkit-animation: eat 1s linear 0s infinite;
+animation: eat 1s linear 0s infinite;
+}   
+
+/* Animation*/
+
+@keyframes spin1 {
+	0%  {transform: rotate(0deg);}
+	50%{transform: rotate(-35deg);}
+  
+}
+@keyframes spin2 {
+	0%  {transform: rotate(0deg);}
+  50%{transform: rotate(35deg);}	
+}
+
+@-moz-keyframes spin1 {
+	0%  {transform: rotate(0deg);}
+	50%{transform: rotate(-35deg);}
+  
+}
+@-moz-keyframes spin2 {
+	0%  {transform: rotate(0deg);}
+  50%{transform: rotate(35deg);}	
+}
+
+@-webkit-keyframes spin1 {
+	0%  {transform: rotate(0deg);}
+	50%{transform: rotate(-35deg);}
+  
+}
+@-webkit-keyframes spin2 {
+	0%  {transform: rotate(0deg);}
+  50%{transform: rotate(35deg);}	
+}
+
+@keyframes eat {
+	0% { box-shadow: 
+      100px 65px 0 0 white, 
+      300px 65px 0 0 white, 
+      500px 65px 0 0 white, 
+      700px 65px 0 0 white,
+      900px 65px 0 0 white, 
+      1100px 65px 0 0 white, 
+      1300px 65px 0 0 white;}
+  
+100% { box-shadow: 
+      0px 65px 0 0 white, 
+      100px 65px 0 0 white,
+      300px 65px 0 0 white, 
+      500px 65px 0 0 white, 
+      700px 65px 0 0 white, 
+      900px 65px 0 0 white, 
+      1100px 65px 0 0 white;}
+}
+}
+
+
+@-moz-keyframes eat {
+	0% { box-shadow: 
+      100px 65px 0 0 white, 
+      300px 65px 0 0 white, 
+      500px 65px 0 0 white, 
+      700px 65px 0 0 white,
+      900px 65px 0 0 white, 
+      1100px 65px 0 0 white, 
+      1300px 65px 0 0 white;}
+  
+100% { box-shadow: 
+      0px 65px 0 0 white, 
+      100px 65px 0 0 white,
+      300px 65px 0 0 white, 
+      500px 65px 0 0 white, 
+      700px 65px 0 0 white, 
+      900px 65px 0 0 white, 
+      1100px 65px 0 0 white;}
+}
+}
+
+
+@-webkit-keyframes eat {
+	0% { box-shadow: 
+      100px 65px 0 0 white, 
+      300px 65px 0 0 white, 
+      500px 65px 0 0 white, 
+      700px 65px 0 0 white,
+      900px 65px 0 0 white, 
+      1100px 65px 0 0 white, 
+      1300px 65px 0 0 white;}
+  
+100% { box-shadow: 
+      0px 65px 0 0 white, 
+      100px 65px 0 0 white,
+      300px 65px 0 0 white, 
+      500px 65px 0 0 white, 
+      700px 65px 0 0 white, 
+      900px 65px 0 0 white, 
+      1100px 65px 0 0 white;}
+}
+}
+
 
 .bg-light{
   background-color: #c9d1c8;
@@ -48,7 +194,7 @@ a.btn-sm {font-size: 0.8rem; color: #c9d1c8}
 
 p {
   font-family: 'Quantico', sans-serif;
-  color: #101110; 
+  color: #eef1ee; 
   font-size: 1em;
 }
 
