@@ -203,12 +203,12 @@ function bubbleChart() {
 	/**
 	 * Get/set the property used to determine the colors of the bubbles. 
 	 * Use 'chart.columnForColors' to get or set. 
-	 * @example
+	//  @example
 	 * chart.columnForColors("Sex");	// Sets the column to birthCount
 	 * chart.columnForColors();	// returns "Sex"
 	 * @public
-	 * @param {string} [value] - Property name to bind the bubble color to.
-	 * @returns function - Chart, allowing chaining of commands
+	//  * @param {string} [value] - Property name to bind the bubble color to.
+	//  * @returns function - Chart, allowing chaining of commands
 	 */
 	function chartColForColors(value) {
 		if (!arguments.length) {
@@ -417,15 +417,4 @@ function bubbleChart() {
 	
 	return chart;
 }
-© 2019 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+
