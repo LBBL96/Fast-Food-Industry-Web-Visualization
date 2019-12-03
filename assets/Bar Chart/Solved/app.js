@@ -41,25 +41,19 @@ var snack = [97,93,150,108];
 const chosenXAxis = burger;
 
 // scale y to chart height
-function yScale(chosenXAxis){
-    var yScale = d3.scaleLinear()
-    .domain([0, d3.max(chosenXAxis)])
-    .range([chartHeight, 0]);
 
-    return yScale;
-}
 
-function renderAxes(newYScale, yAxis) {
-    const leftAxis = d3.axisLeft(newYScale);
+// function renderAxes(newYScale, yAxis) {
+//     const leftAxis = d3.axisLeft(newYScale);
   
-    yAxis.transition()
-      .duration(1000)
-      .call(leftAxis);
+//     yAxis.transition()
+//       .duration(1000)
+//       .call(leftAxis);
   
-    return yAxis;
-  }
+//     return yAxis;
+//   }
 
-function renderRectangles(rectanglesGroup, newYScale, chosenXAxis){
+function renderRectangles(rectanglesGroup, chosenXAxis){
     rectanglesGroup.transition()
     .duration(1000)
     .attr("height", d => chartHeight - yScale(d[chosenXAxis]));
@@ -67,8 +61,12 @@ function renderRectangles(rectanglesGroup, newYScale, chosenXAxis){
   return rectanglesGroup;
 
 }
+
 function makeResponsive() {
 
+    var yScale = d3.scaleLinear()
+    .domain([0, d3.max(burger)])
+    .range([chartHeight, 0]);
 
     // scale x to chart width
     const xScale = d3.scaleBand()
@@ -100,10 +98,6 @@ function makeResponsive() {
         .attr("width", xScale.bandwidth())
         .attr("height", d => chartHeight - yScale(d))
         .attr("fill", "green")
-        // event listener for onclick event
-        // .on("click", function(d, i) {
-        //   alert(`Hey! You clicked bar ${dataCategories[i]}!`);
-        // })
         // event listener for mouseover
         .on("mouseover", function() {
           d3.select(this)
@@ -134,7 +128,6 @@ function makeResponsive() {
         .text("Chicken");
     
     
-
     labelsGroup.selectAll("text")
         .on("click", function() {
         // get value of selection
@@ -143,13 +136,8 @@ function makeResponsive() {
             chosenXAxis = value;
             console.log(chosenXAxis)}
 
-        // if (!svgArea.empty()) {
-        //     svgArea.remove();
-        // }
-
         });
-        
-   
+         
 }
 
 makeResponsive();
