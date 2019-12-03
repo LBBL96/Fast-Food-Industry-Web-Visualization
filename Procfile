@@ -1,0 +1,1 @@
+web: gunicorn Fast_Food_Franchise_Analysis.app:app
