@@ -1,8 +1,8 @@
 # U.S. Fast Food Industry Web Visualization Project
 
-Project Overview
+#Heroku Deployment:
 
-## Heroku Deployment:
+#Project Objective:
 
 
 We found  our dataset using the Datafiniti's Business Database that included around 10,000 rows of data that were filtered and grouped by states, fast food sales, the number of restaurants per state, categories by state, categories by region, and categories by state. 
