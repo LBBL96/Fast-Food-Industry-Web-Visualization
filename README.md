@@ -2,22 +2,19 @@
 
 Project Overview
 
+We found  our dataset using the Datafiniti's Business Database that included around 10,000 rows of data that were filtered and grouped by states, fast food sales, the number of restaurants per state, categories by state, categories by region, and categories by state. 
+
+We incorporated a Flask app, utilized a SQL database, created web visualizations using Tableau, D3, Python plots, and hosted our website on Heroku.
+
+With the U.S. having roughly 241,000 total fast food restaurants, according to this 2016 dataset, the restaurants and categories of focus for this project were:
+
+* Burgers, Sandwiches, Ethnic, Pizza, Snacks, Chicken, Seafood
+
+* Starbucks, Chik-Fil-A, McDonald's, Taco Bell, Burger King, Arby's, Wendys, Jack in the Box, Pizza Hut, Dairy Queen
 
 
-Utilizing a SQL database 
-incorporating Flask app 
-creating visualizations using Tableau, D3, Python
-hosting our website on Heroku.
-
-Our team, researched and analyzed a dataset from Datafinity - 2016
-
-
-
-
-
-
-##Project Team:
-Jorge Cavazos
-Lynn Leifker
-Cynthia Juarez
-Kellye Rennell
+## Project Team:
+- Jorge Cavazos
+- Lynn Leifker
+- Cynthia Juarez
+- Kellye Rennell
