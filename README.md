@@ -4,7 +4,7 @@ Project Overview
 
 We found  our dataset using the Datafiniti's Business Database that included around 10,000 rows of data that were filtered and grouped by states, fast food sales, the number of restaurants per state, categories by state, categories by region, and categories by state. 
 
-We incorporated a Flask app, JavaScript,  utilized a SQLite database, created web visualizations using Tableau, D3, Python plots, and hosted our website on Heroku.
+We incorporated JavaScript,  utilized a SQLite database, created web visualizations using Tableau, D3, Python plots, and deployed our Flask app to Heroku.
 
 With the U.S. having roughly 241,000 total fast food restaurants, according to this 2016 dataset, the restaurants and categories of focus for this project were:
 
