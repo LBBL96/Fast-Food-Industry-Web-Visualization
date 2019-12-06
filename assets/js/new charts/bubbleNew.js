@@ -1,3 +1,44 @@
+**
+//  * Purpose:
+//  * Generate a reusable bubble chart
+//  * 
+//  * Instantiate the settings before rendering the bubble chart
+//  * Generate a reusable bubble chart using d3.v4.js on a dataset loaded through D3.
+//  * 
+//  * Original Author: Deborah Mesquita
+//  * Source: 
+//  * 
+//  * {@link https://bl.ocks.org/dmesquita/37d8efdb3d854db8469af4679b8f984a Deborah Mesquita's block}
+//  *	
+//  * {@link https://medium.freecodecamp.org/a-gentle-introduction-to-d3-how-to-build-a-reusable-bubble-chart-9106dc4f6c46 Tutorial and explanation}
+//  * 
+//  * {@link https://taylorchasewhite.github.io/babyNames/ Live demo}
+//  * @author Deborah Mesquita
+//  * @author Taylor White <whitetc2@gmail.com>
+//  * @since  07.04.17
+//  * @summary  Generate a reusable bubble chart
+//  * @requires d3.v4.js
+//  * @class
+//  * 
+//  * @example
+//  * var chart = bubbleChart(); // instantiate the chart
+//  * 
+//  * // update settings
+//  * chart.width(850).height(850).minRadius(7).maxRadius(55).forceApart(-170); 
+//  * 
+//  * // example of chaining
+//  * chart.columnForColors("Sex").columnForRadius("BirthCount");
+//  * chart.customColors(["M","F"],["#70b7f0","#e76486"]).showTitleOnCircle(true);
+//  * chart.title('Most popular baby names in 2016').columnForTitle("Name");
+//  * chart.unitName("babies");
+//  * 
+//  * // load the data and render the chart 
+//  * d3.select("#divBubbleChart")
+//  * 	.data(newData)
+//  * 	.call(chart);
+//  * 
+//  * @returns Chart function so that you can render the chart when ready
+//  */
 function bubbleChart() {
 	var width = 960,
 	height = 960,
@@ -417,15 +458,3 @@ function bubbleChart() {
 	
 	return chart;
 }
-© 2019 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
