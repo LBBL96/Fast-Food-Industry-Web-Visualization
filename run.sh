@@ -1,0 +1,1 @@
+FLASK_APP=Fast_Food_Franchise_Analysis/app.py flask run
