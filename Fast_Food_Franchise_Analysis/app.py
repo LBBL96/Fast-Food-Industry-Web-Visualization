@@ -28,7 +28,7 @@ Base.prepare(db.engine, reflect=True)
 
 # Save references to each table
 Fast_Food_Sales = Base.classes.Fast_Food_Sales
-Final_Clean = Base.classes.Final_Clean
+final_clean = Base.classes.final_clean
 
 # defining the page index
 @app.route("/")
@@ -39,18 +39,18 @@ def index():
 
 @app.route("/names")
 def names():
-    """Return a list of company names."""
+    """Return a list of restaurant names."""
 
     # Use Pandas to perform the sql query
     stmt = db.session.query(final_clean).statement
     df = pd.read_sql_query(stmt, db.session.bind)
 
-    # Return a list of the column names (company names)
+    # Return a list of the column names (restaurant names)
     return jsonify(list(df.columns)[2:])
 
 
-@app.route("/Sales/<company_name>")
-def Fast_Food_Sales(company_name):
+@app.route("/Fast_Food_Sales/<company>")
+def Fast_Food_Sales(company):
     """Return the Sales data for a given company."""
     sel = [
         Fast_Food_Sales.Company,

@@ -1,17 +1,17 @@
 
 //using async as recommended by Manny. the catch callback will be executied when the promise is rejected
-async function buildMetadata(sample) {
+async function buildRestaurantData(restaurantName) {
 
-    // @TODO: Complete the following function that builds the metadata panel
-    const metaUrl = "/metadata/" + sample;
-    const response = await d3.json(metaUrl)
+    // @TODO: Complete the following function that builds the restaurant panel
+    const restaurantUrl = "/Fast_Food_Sales/" + restaurantName;
+    const response = await d3.json(restaurantUrl)
     console.log(response);
   
   // Use d3 to select the panel with id of `#sample-metadata`
-    const metaPanel = d3.select("#sample-metadata");
+    const restaurantPanel = d3.select("body");
      
   // Use `.html("") to clear any existing metadata
-    metaPanel.html("");
+    restaurantData.html("");
   
   // Use `Object.entries` to add each key and value pair to the panel
   // Hint: Inside the loop, you will need to use d3 to append new
@@ -19,31 +19,29 @@ async function buildMetadata(sample) {
   
       Object.entries(data).forEach(([key, value]) => {
         // console.log(key + value);
-        const panelrow = metaPanel.append("p");
-        panelrow.text(`${key}:${value}`);
+        const row = restaurantPanel.append("p");
+        restaurantPanel.text(`${key}:${value}`);
     
       });
     }
    
-  //   // BONUS: Build the Gauge Chart
-      // buildGauge(data.WFREQ);
-  
-  async function buildCharts(sample) {
+    
+  async function buildChart(restaurantName) {
   
   // // // @TODO: Use `d3.json` to fetch the sample data for the plots
-    const urlSample = "/samples/" + sample;
-    const response = await d3.json(urlSample)
+    const restaurantDataUrl = "/final_clean/" + restaurantName;
+    const response = await d3.json(restaurantDataUrl)
   
   // //   // @TODO: Use `d3.json` to fetch the sample data for the plots
   
    // @TODO: Build a Bubble Chart using the sample data
     const
-       xAxis = data.otu_ids,
-       yAxis = data.sample_values,
-       otuLabels = data.otu_labels,
-       sample_values = data.sample_values,
-       colors = data.otu_ids,
-       textValues = data.otu_labels;
+       xAxis = data.name,
+       yAxis = data.state,
+       categoryLabels = data.categoryLabels,
+       restaurantDataValues = data.restaurantDataValues,
+       colors = data.name,
+       textValues = data.categoryLabels;
   
       const trace1 = {
         x: xAxis,
@@ -53,14 +51,14 @@ async function buildMetadata(sample) {
         marker: {
           color: colors,
           opacity: [1, 0.8, 0.6, 0.4],
-          size: sample_values
+          size: restaurantDataValues
         }
       };
           
       const data = [trace1];
   
       const layout = {
-       xaxis: {title: "OTU ID"},
+       xaxis: {title: "Name"},
        showlegend: false
       };
   
@@ -69,48 +67,31 @@ async function buildMetadata(sample) {
   
     }
   
-       // @TODO: Build a Pie Chart
-    // HINT: You will need to use slice() to grab the top 10 sample_values,
-  //     // otu_ids, and labels (10 each).
-      const pieChart = [{
-          values: sample_values.slice(0, 10),
-          labels: otu_ids.slice(0, 10),
-          hovertext: otu_labels.slice(0, 10),
-          hoverinfo: "hovertext",
-          type: "pie"
-      }];
   
-      const layout = {
-        height: 600,
-        width: 800
-      };
-  
-      Plotly.newPlot("pie", pieChart, layout);
-      
   function init() {
   //   // Grab a reference to the dropdown select element
     const selector = d3.select("#selDataset");
   
-    // Use the list of sample names to populate the select options
+    // Use the list of restaurant names to populate the select options
   
-    d3.json("/names").then((sampleNames) => {
-      sampleNames.forEach((sample) => {
+    d3.json("/names").then((restaurantNames) => {
+      restaurantNames.forEach((restaurantName) => {
         selector
           .append("option")
-          .text(sample)
-          .property("value", sample);
+          .text(restaurantName)
+          .property("value", restaurantName);
       });
-   // Use the first sample from the list to build the initial plots
-      const firstSample = sampleNames[0];
-      buildCharts(firstSample);
-      buildMetadata(firstSample);
+   // Use the first sample from the list to build the initial plot
+      const firstName = restaurantNames[0];
+      buildCharts(firstName);
+      buildMetadata(firstName);
     });
   }
   
-  function optionChanged(newSample) {
-   // Fetch new data each time a new sample is selected
-    buildCharts(newSample);
-    buildMetadata(newSample);
+  function optionChanged(newRestaurant) {
+   // Fetch new data each time a new restaurant name is selected
+    buildCharts(newRestaurant);
+    buildMetadata(newRestaurant);
   }
   
   // Initialize the dashboard
