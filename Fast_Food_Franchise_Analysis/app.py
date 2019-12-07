@@ -30,7 +30,7 @@ Base.prepare(db.engine, reflect=True)
 Fast_Food_Sales = Base.classes.Fast_Food_Sales
 Final_Clean = Base.classes.Final_Clean
 
-
+# defining the page index
 @app.route("/")
 def index():
     """Return the homepage."""
@@ -56,7 +56,7 @@ def Fast_Food_Sales(company_name):
         Fast_Food_Sales.Company,
         Fast_Food_Sales.Category,
         Fast_Food_Sales.Total_Units_in_2016
-        
+     
         
     ]
 
