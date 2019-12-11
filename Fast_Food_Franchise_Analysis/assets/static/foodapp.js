@@ -1,10 +1,10 @@
 
 //using async as recommended by Manny. the catch callback will be executied when the promise is rejected
-async function buildRestaurantData(restaurantName) {
+async function buildRestaurantData(companyName) {
 
-    // @TODO: Complete the following function that builds the restaurant panel
-    const restaurantUrl = "/Fast_Food_Sales/" + restaurantName;
-    const response = await d3.json(restaurantUrl)
+    // @TODO: Complete the following function that builds the fast food  restaurant  panel
+    const companyUrl = "/Fast_Food_Sales/" + companyName;
+    const response = await d3.csv(companyName)
     console.log(response);
   
   // Use d3 to select the panel with id of `#sample-metadata`
@@ -26,11 +26,11 @@ async function buildRestaurantData(restaurantName) {
     }
    
     
-  async function buildChart(restaurantName) {
+  async function buildChart(companyName) {
   
-  // // // @TODO: Use `d3.json` to fetch the sample data for the plots
+  // // // @TODO: Use `d3.json` to fetch the final clean company data for plotting
     const restaurantDataUrl = "/final_clean/" + restaurantName;
-    const response = await d3.json(restaurantDataUrl)
+    const response = await d3.csv(restaurantDataUrl)
   
   // //   // @TODO: Use `d3.json` to fetch the sample data for the plots
   
