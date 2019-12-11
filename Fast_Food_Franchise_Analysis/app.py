@@ -37,16 +37,28 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/names")
+@app.route("/density")
 def names():
-    """Return a list of company names."""
+    """Return category density by region."""
 
-    # Use Pandas to perform the sql query
-    stmt = db.session.query(final_clean).statement
-    df = pd.read_sql_query(stmt, db.session.bind)
+    sel = [
+        Regions.category,
+        Regions.region,
+        Regions.number
+    ]
 
-    # Return a list of the column names (restaurant names)
-    return jsonify(list(df.columns)[2:])
+    results = db.session.query(*sel).all()
+
+    # Create a dictionary entry for each row of company information
+    company_data = {}
+    for result in results:
+        Regions["category"] = result[1]
+        Regions["region"] = result[0]
+        Regions["number"] = result[2]
+        
+
+    print(company_data)
+    return jsonify(company_data)
 
 
 @app.route("/Fast_Food_Sales/<company>")
@@ -55,46 +67,20 @@ def Fast_Food_Sales(company):
     sel = [
         Fast_Food_Sales.Company,
         Fast_Food_Sales.Category,
-        Fast_Food_Sales.Total_Units_in_2016,
-     
-        
+        Fast_Food_Sales.Total_Units_in_2016, 
     ]
 
-    results = db.session.query(*sel).filter(Fast_Food_Sales.company == company).all()
+    results = db.session.query(*sel).filter(Fast_Food_Sales.Company == company).all()
 
     # Create a dictionary entry for each row of company information
     company_data = {}
     for result in results:
         Fast_Food_Sales["Company"] = result[0]
         Fast_Food_Sales["Category"] = result[1]
-        Fast_Food_Sales["TotalUnitsin2016"] = result[2]
+        Fast_Food_Sales["TotalUnitsin2016"] = result[6]
 
     print(company_data)
     return jsonify(company_data)
-
-
-@app.route("/final_clean/<company>")
-def final_clean(company):
-    """Return `name`, `categories`, `state`, `region`."""
-    stmt = db.session.query(final_clean).statement
-    df = pd.read_sql_query(stmt, db.session.bind)
-
-    # Filter the data based on the company name and
-    # only keep rows with values above 1
-    company_data = df.loc[df[company] > 1, ["name", "categories","state", "region", company]
-
-    # Sort by company name
-    company_data.sort_values(by=company, ascending=False, inplace=True)
-
-    # Format the data to send as json
-    data = {
-        "name": company_data.name.tolist(),
-        "categories": company_data.categories.tolist(),
-        "state": company_data.state.tolist(),
-        "region": company_data.region.tolist(),
-    }
-    return jsonify(data)
-
 
 if __name__ == "__main__":
     app.run()
