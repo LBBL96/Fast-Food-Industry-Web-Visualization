@@ -39,7 +39,7 @@ def index():
 
 @app.route("/names")
 def names():
-    """Return a list of restaurant names."""
+    """Return a list of company names."""
 
     # Use Pandas to perform the sql query
     stmt = db.session.query(final_clean).statement
@@ -55,12 +55,12 @@ def Fast_Food_Sales(company):
     sel = [
         Fast_Food_Sales.Company,
         Fast_Food_Sales.Category,
-        Fast_Food_Sales.Total_Units_in_2016
+        Fast_Food_Sales.Total_Units_in_2016,
      
         
     ]
 
-    results = db.session.query(*sel).filter(Fast_Food_Sales.company_name == company_name).all()
+    results = db.session.query(*sel).filter(Fast_Food_Sales.company == company).all()
 
     # Create a dictionary entry for each row of company information
     company_data = {}
@@ -69,26 +69,26 @@ def Fast_Food_Sales(company):
         Fast_Food_Sales["Category"] = result[1]
         Fast_Food_Sales["TotalUnitsin2016"] = result[2]
 
-    print(Fast_Food_Sales)
-    return jsonify(Fast_Food_Sales)
+    print(company_data)
+    return jsonify(company_data)
 
 
-@app.route("/final_clean/<company_name>")
-def final_clean(company_name):
+@app.route("/final_clean/<company>")
+def final_clean(company):
     """Return `name`, `categories`, `state`, `region`."""
     stmt = db.session.query(final_clean).statement
     df = pd.read_sql_query(stmt, db.session.bind)
 
-    # Filter the data based on the company names and
+    # Filter the data based on the company name and
     # only keep rows with values above 1
-    company_data = df.loc[df[company_name] > 1, ["name", "categories","state", "region", company_name]]
+    company_data = df.loc[df[company] > 1, ["name", "categories","state", "region", company]
 
     # Sort by company name
-    company_data.sort_values(by=company_name, ascending=False, inplace=True)
+    company_data.sort_values(by=company, ascending=False, inplace=True)
 
     # Format the data to send as json
     data = {
-        "name": company_data.name.values.tolist(),
+        "name": company_data.name.tolist(),
         "categories": company_data.categories.tolist(),
         "state": company_data.state.tolist(),
         "region": company_data.region.tolist(),
