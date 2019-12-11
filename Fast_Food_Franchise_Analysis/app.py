@@ -37,28 +37,28 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/density")
-def names():
-    """Return category density by region."""
+# @app.route("/density")
+# def names():
+#     """Return category density by region."""
 
-    sel = [
-        Regions.category,
-        Regions.region,
-        Regions.number
-    ]
+#     sel = [
+#         Regions.category,
+#         Regions.region,
+#         Regions.number
+#     ]
 
-    results = db.session.query(*sel).all()
+#     results = db.session.query(*sel).all()
 
-    # Create a dictionary entry for each row of company information
-    company_data = {}
-    for result in results:
-        Regions["category"] = result[1]
-        Regions["region"] = result[0]
-        Regions["number"] = result[2]
+#     # Create a dictionary entry for each row of company information
+#     company_data = {}
+#     for result in results:
+#         Regions["category"] = result[1]
+#         Regions["region"] = result[0]
+#         Regions["number"] = result[2]
         
 
-    print(company_data)
-    return jsonify(company_data)
+#     print(company_data)
+#     return jsonify(company_data)
 
 
 @app.route("/Fast_Food_Sales/<company>")
