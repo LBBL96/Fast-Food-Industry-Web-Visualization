@@ -18,7 +18,7 @@ app = Flask(__name__)
 # Database Setup
 #################################################
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db/Fast_Food_Restaurants.sqlite"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db/Fast_Food_Restaurants.db"
 db = SQLAlchemy(app)
 
 # reflect an existing database into a new model
@@ -35,6 +35,21 @@ final_clean = Base.classes.final_clean
 def index():
     """Return the homepage."""
     return render_template("index.html")
+
+@app.route("/density")
+def density():
+    """Return the homepage."""
+    return render_template("Density.html")
+
+@app.route("/facts")
+def facts():
+    """Return the homepage."""
+    return render_template("Facts.html")
+
+@app.route("/reveal")
+def reveal():
+    """Return the homepage."""
+    return render_template("Reveal.html")
 
 
 # @app.route("/density")
@@ -83,4 +98,4 @@ def Fast_Food_Sales(company):
     return jsonify(company_data)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
