@@ -71,7 +71,7 @@
 							<input type="radio" name="snack" value="snack" onclick='change(this.value)' checked> Snack
 						</label>
 					</div>
-			<div id='chart'>
+			<div class='chart'>
       </div>
 	</div>
 </div>
@@ -276,6 +276,7 @@ function change(value){
 }
 
 function update(data){
+  console.log("Updating chart")
 	//set domain for the x axis
 	xChart.domain(data.map(function(d){ return d.region; }) );
 	//set domain for y axis
@@ -332,7 +333,7 @@ var margin = {top: 20, right: 20, bottom: 95, left: 50};
 var width = 800;
 var height = 500;
 
-var chart = d3.select("#chart")
+var chart = d3.select(".chart")
 				.attr("width", width + margin.left + margin.right)
 				.attr("height", height + margin.top + margin.bottom)
 				.append("g")
