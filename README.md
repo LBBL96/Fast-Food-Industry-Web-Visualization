@@ -1,8 +1,11 @@
 # U.S. Fast Food Industry Web Visualization Project
 ## Team Members
 [Lynn Leifker](https://github.com/LBBL96/): Analysis, Data Cleaning, Python, JavaScript Visualization
+
 [Jorge Cavazos](https://github.com/Jcavazosg/): SQLite Database, Web Design, HTML, Flask, Deployment
+
 [Cynthia Juarez](https://github.com/juarezCynthia3/): Data Gathering and Cleaning, Excel, Tableau Visualization
+
 [Kellye Rennell](https://github.com/KellyeRennell/): Research, JavaScript Visualization, Deployment
 
 ## Data Gathering
